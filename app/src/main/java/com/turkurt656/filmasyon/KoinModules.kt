@@ -1,5 +1,7 @@
 package com.turkurt656.filmasyon
 
+import com.turkurt656.data.domainimpl.di.repositoryModule
+import com.turkurt656.data.domainimpl.di.useCaseModule
 import com.turkurt656.data.local.di.dataStoreModule
 import com.turkurt656.data.remote.di.apiModule
 import com.turkurt656.data.remote.di.networkModule
@@ -17,4 +19,6 @@ val koinModules = listOf(
     dataStoreModule,
     apiModule,
     networkModule,
+    repositoryModule,
+    useCaseModule,
 )

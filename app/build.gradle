@@ -44,4 +44,5 @@ dependencies {
 
     implementation project(DataModules.local)
     implementation project(DataModules.remote)
+    implementation project(DataModules.domainImpl)
 }
