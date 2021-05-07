@@ -1,0 +1,9 @@
+import com.turkurt656.buildsrc.deps.DataStoreDeps
+import com.turkurt656.buildsrc.gradles.CommonGradles
+
+apply from: "$rootDir$CommonGradles.androidLibrary"
+
+dependencies {
+    implementation DataStoreDeps.corePreferences
+    implementation DataStoreDeps.androidPreferences
+}
