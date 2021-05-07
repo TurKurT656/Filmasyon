@@ -1,6 +1,7 @@
 include ':library:core', ':library:lifecycle', ':library:designsystem', ':library:action',
         ':library:navigation', ':library:imageloader'
 include ':data:domain', ':data:domainimpl', ':data:local', ':data:remote'
+include ':common:core'
 include ':app'
 
 rootProject.name = "Filmasyon"

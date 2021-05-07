@@ -2,8 +2,10 @@ import com.turkurt656.buildsrc.BuildConstants
 import com.turkurt656.buildsrc.Plugins
 import com.turkurt656.buildsrc.deps.AndroidDeps
 import com.turkurt656.buildsrc.deps.AndroidxDeps
+import com.turkurt656.buildsrc.deps.NavigationDeps
 import com.turkurt656.buildsrc.deps.UIDeps
 import com.turkurt656.buildsrc.gradles.CommonGradles
+import com.turkurt656.buildsrc.modules.CommonModules
 import com.turkurt656.buildsrc.modules.DataModules
 import com.turkurt656.buildsrc.modules.LibraryModules
 
@@ -39,9 +41,12 @@ dependencies {
     implementation AndroidDeps.multidex
     implementation AndroidxDeps.constraintLayout
     implementation UIDeps.material
+    implementation NavigationDeps.fragmentKtx
 
     implementation project(LibraryModules.designSystem)
     implementation project(LibraryModules.imageLoader)
+
+    implementation project(CommonModules.core)
 
     implementation project(DataModules.local)
     implementation project(DataModules.remote)
