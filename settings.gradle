@@ -1,4 +1,4 @@
-include ':library:core', ':library:lifecycle', ':library:designsystem'
+include ':library:core', ':library:lifecycle', ':library:designsystem', ':library:action'
 include ':app'
 
 rootProject.name = "Filmasyon"

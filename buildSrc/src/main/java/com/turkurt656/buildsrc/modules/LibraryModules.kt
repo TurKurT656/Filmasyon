@@ -8,11 +8,13 @@ object LibraryModules {
         const val core = "core"
         const val lifecycle = "lifecycle"
         const val designSystem = "designsystem"
+        const val action = "action"
 
     }
 
     val core = module(Paths.library, Paths.core)
     val lifecycle = module(Paths.library, Paths.lifecycle)
     val designSystem = module(Paths.library, Paths.designSystem)
+    val action = module(Paths.library, Paths.action)
 
 }
