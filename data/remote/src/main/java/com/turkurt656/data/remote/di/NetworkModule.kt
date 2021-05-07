@@ -2,6 +2,7 @@ package com.turkurt656.data.remote.di
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
+import com.turkurt656.data.remote.getBaseUrl
 import com.turkurt656.data.remote.interceptor.AuthorizationInterceptor
 import com.turkurt656.library.core.di.GlobalQualifiers.IS_DEBUG
 import com.turkurt656.library.core.di.RemoteQualifiers.AUTHORIZATION_INTERCEPTOR
@@ -22,8 +23,7 @@ import java.util.concurrent.TimeUnit
 val networkModule = module {
 
     factory(BASE_URL) {
-        if (get(IS_DEBUG)) ""
-        else ""
+        getBaseUrl(get(IS_DEBUG))
     }
 
     factory(READ_TIMEOUT) { 30 * 1000L }
