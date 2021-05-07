@@ -43,4 +43,5 @@ dependencies {
     implementation project(LibraryModules.designSystem)
 
     implementation project(DataModules.local)
+    implementation project(DataModules.remote)
 }
