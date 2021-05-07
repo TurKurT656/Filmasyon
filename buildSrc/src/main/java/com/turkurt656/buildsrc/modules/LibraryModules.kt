@@ -10,6 +10,7 @@ object LibraryModules {
         const val designSystem = "designsystem"
         const val action = "action"
         const val navigation = "navigation"
+        const val imageLoader = "imageloader"
 
     }
 
@@ -18,5 +19,6 @@ object LibraryModules {
     val designSystem = module(Paths.library, Paths.designSystem)
     val action = module(Paths.library, Paths.action)
     val navigation = module(Paths.library, Paths.navigation)
+    val imageLoader = module(Paths.library, Paths.imageLoader)
 
 }

@@ -1,0 +1,8 @@
+import com.turkurt656.buildsrc.deps.CoilDeps
+import com.turkurt656.buildsrc.gradles.CommonGradles
+
+apply from: "$rootDir$CommonGradles.androidLibrary"
+
+dependencies {
+    implementation CoilDeps.coil
+}

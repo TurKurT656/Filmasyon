@@ -41,6 +41,7 @@ dependencies {
     implementation UIDeps.material
 
     implementation project(LibraryModules.designSystem)
+    implementation project(LibraryModules.imageLoader)
 
     implementation project(DataModules.local)
     implementation project(DataModules.remote)
