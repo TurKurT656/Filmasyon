@@ -54,5 +54,6 @@ dependencies {
     implementation project(CommonModules.core)
 
     implementation project(FeatureModules.splash)
+    implementation project(FeatureModules.tvShow)
 
 }

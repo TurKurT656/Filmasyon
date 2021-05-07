@@ -6,6 +6,7 @@ import com.turkurt656.data.local.di.dataStoreModule
 import com.turkurt656.data.remote.di.apiModule
 import com.turkurt656.data.remote.di.networkModule
 import com.turkurt656.feature.splash.di.splashFeatureModule
+import com.turkurt656.feature.tvshow.di.tVShowFeatureModule
 import com.turkurt656.library.core.di.GlobalQualifiers.IS_DEBUG
 import com.turkurt656.library.imageloader.di.imageLoaderModule
 import org.koin.dsl.module
@@ -25,4 +26,5 @@ val koinModules = listOf(
     repositoryModule,
     useCaseModule,
     splashFeatureModule,
+    tVShowFeatureModule,
 )

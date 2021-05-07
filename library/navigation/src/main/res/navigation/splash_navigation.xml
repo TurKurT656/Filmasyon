@@ -6,6 +6,14 @@
 
     <fragment
         android:id="@id/splash_fragment"
-        android:name="com.turkurt656.feature.splash.ui.SplashFragment" />
+        android:name="com.turkurt656.feature.splash.ui.SplashFragment">
+
+        <action
+            android:id="@+id/to_tv_show"
+            app:destination="@id/tv_show_navigation"
+            app:popUpTo="@id/splash_navigation"
+            app:popUpToInclusive="true" />
+
+    </fragment>
 
 </navigation>

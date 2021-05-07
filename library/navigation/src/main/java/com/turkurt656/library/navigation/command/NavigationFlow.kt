@@ -1,14 +1,14 @@
 package com.turkurt656.library.navigation.command
 
 import androidx.navigation.NavDirections
+import com.turkurt656.feature.splash.ui.SplashFragmentDirections
 
 sealed class NavigationFlow {
-    //object ToX : NavigationFlow()
+    object SplashToTvShows : NavigationFlow()
 }
 
 
 fun NavigationFlow.toNavDirections(): NavDirections =
-    TODO()
-//    when(this) {
-//        is NavigationFlow.ToX -> ActionOnlyNavDirections(0)
-//    }
+    when (this) {
+        is NavigationFlow.SplashToTvShows -> SplashFragmentDirections.toTvShow()
+    }
