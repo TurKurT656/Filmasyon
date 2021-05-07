@@ -2,6 +2,7 @@ include ':library:core', ':library:lifecycle', ':library:designsystem', ':librar
         ':library:navigation', ':library:imageloader'
 include ':data:domain', ':data:domainimpl', ':data:local', ':data:remote'
 include ':common:core'
+include ':feature:splash'
 include ':app'
 
 rootProject.name = "Filmasyon"
