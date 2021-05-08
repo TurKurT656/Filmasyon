@@ -12,14 +12,12 @@ class PopularTVShowViewModel(
     private val _popularShows = MutableLiveResult<List<TVShow>>()
     val popularShows: LiveResult<List<TVShow>> = _popularShows
 
-    init {
-        launch {
-            getPopularShowsUseCase(1)
-                .collectOnLiveData(
-                    _popularShows,
-                    this@PopularTVShowViewModel,
-                )
-        }
+    fun fetchPopularShows(page: Int) = launch {
+        getPopularShowsUseCase(page)
+            .collectOnLiveData(
+                _popularShows,
+                this@PopularTVShowViewModel,
+            )
     }
 
 }
