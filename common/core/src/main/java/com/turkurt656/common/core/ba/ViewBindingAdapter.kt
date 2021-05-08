@@ -28,7 +28,7 @@ object ViewBindingAdapter {
         view.isEnabled = when (result) {
             is Result.Loading -> enabledOnLoading ?: false
             is Result.Success -> enabledOnSuccess ?: true
-            is Result.Error -> enabledOnError ?: true
+            is Result.Error<*> -> enabledOnError ?: true
             else -> enabledOnNull ?: true
         }
     }
@@ -71,7 +71,7 @@ object ViewBindingAdapter {
         when (result) {
             is Result.Loading -> if (visibilityOnLoading == true) view.show() else view.hide(gone)
             is Result.Success -> if (visibilityOnSuccess != false) view.show() else view.hide(gone)
-            is Result.Error -> if (visibilityOnError != false) view.show() else view.hide(gone)
+            is Result.Error<*> -> if (visibilityOnError != false) view.show() else view.hide(gone)
             else -> if (visibilityOnNull == true) view.show() else view.hide(gone)
         }
     }

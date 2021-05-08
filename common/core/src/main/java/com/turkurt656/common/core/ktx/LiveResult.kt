@@ -23,7 +23,7 @@ inline fun <T, W> LiveResult<T>.mapSuccess(
         addSource(this@mapSuccess) {
             value = when(it) {
                 is Result.Success -> Result.Success(transform(it.data))
-                is Result.Error -> it
+                is Result.Error<*> -> it
                 is Result.Loading -> it
             }
         }

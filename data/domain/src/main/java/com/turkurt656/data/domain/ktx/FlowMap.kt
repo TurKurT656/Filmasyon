@@ -13,7 +13,7 @@ inline fun <T, R> FlowResult<T>.flatMapLatestOnSuccess(
     return flatMapLatest {
         return@flatMapLatest when (it) {
             is Result.Success -> transform.invoke(it.data)
-            is Result.Error -> flow { emit(it) }
+            is Result.Error<*> -> flow { emit(it) }
             is Result.Loading -> flow { emit(it) }
         }
     }

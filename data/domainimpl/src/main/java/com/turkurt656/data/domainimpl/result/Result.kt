@@ -7,28 +7,28 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
 
-fun <T> flowResult(callback: suspend () -> T): FlowResult<T> {
+fun <T> flowResult(cachedData: T? = null, callback: suspend () -> T): FlowResult<T> {
     return flow {
-        emit(safeCall { callback() })
+        emit(safeCall(cachedData) { callback() })
     }.onStart {
         emit(Result.Loading)
     }
 }
 
-private suspend fun <T> safeCall(callback: suspend () -> T) =
+private suspend fun <T> safeCall(cachedData: T?, callback: suspend () -> T) =
     withContext(Dispatchers.IO) {
         return@withContext try {
             Result.Success(callback())
         } catch (e: Exception) {
-            Result.Error(handleError(e))
+            Result.Error(handleError(e), cachedData)
         }
     }
 
-fun <T> Flow<T>.toFlowResult(): FlowResult<T> {
+fun <T> Flow<T>.toFlowResult(cachedData: T? = null): FlowResult<T> {
     return map {
         Result.Success(it)
     }.catch<Result<T>> { e ->
-        emit(value = Result.Error(handleError(e as Exception)))
+        emit(value = Result.Error(handleError(e as Exception), cachedData))
     }.onStart {
         Result.Loading
     }
