@@ -47,6 +47,10 @@ abstract class BaseAdapter<T>(
 
     abstract override fun getItemViewType(position: Int): Int
 
+    override fun submitList(list: List<T>?) {
+        super.submitList(list?.let { ArrayList(it) })
+    }
+
     override fun onViewAttachedToWindow(holder: DataBindingViewHolder) {
         super.onViewAttachedToWindow(holder)
         holder.onAppear()
