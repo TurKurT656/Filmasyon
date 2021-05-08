@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/binding"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.turkurt656.data.domain.dto.tvshow.TVShow" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    binding:fallbackDrawable="@{@drawable/tv_show_fallback}"
+                    binding:imageUrl="@{item.posterPath}"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/rating_bg"
+                    android:drawablePadding="4dp"
+                    android:paddingStart="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="@{`` + item.voteAverage}"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    app:drawableStartCompat="@drawable/ic_star"
+                    app:drawableTint="@color/color_secondary"
+                    tools:ignore="SmallSp"
+                    tools:text="5.6" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/grey_33_alpha_cc"
+                    android:ellipsize="marquee"
+                    android:padding="2dp"
+                    android:singleLine="true"
+                    android:text="@{item.name}"
+                    android:textColor="@color/white"
+                    binding:select="@{true}"
+                    tools:text="@string/app_name" />
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </FrameLayout>
+</layout>

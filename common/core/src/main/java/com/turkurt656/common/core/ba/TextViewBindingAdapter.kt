@@ -12,4 +12,10 @@ object TextViewBindingAdapter {
         resId?.let { textView.text = textView.context.getString(it) }
     }
 
+    @BindingAdapter("binding:select")
+    @JvmStatic
+    fun selectTextView(textView: TextView, isSelected: Boolean?) {
+        textView.isSelected = isSelected == true
+    }
+
 }

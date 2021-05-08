@@ -7,6 +7,7 @@
     <color name="orange_500">#FF9800</color>
     <color name="orange_700">#F57C00</color>
 
+    <color name="grey_33_alpha_cc">#CC333333</color>
     <color name="grey_33">#FF333333</color>
     <color name="grey_58">#FF585858</color>
     <color name="grey_95">#FF959595</color>

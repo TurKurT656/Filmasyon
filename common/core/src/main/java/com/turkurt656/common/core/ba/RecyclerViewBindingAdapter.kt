@@ -20,6 +20,10 @@ object RecyclerViewBindingAdapter {
                     if (adapter is BaseAdapter<*>)
                         (adapter as BaseAdapter<T>).submitList(result.data)
                 }
+                is Result.Error<*> -> {
+                    if (adapter is BaseAdapter<*>)
+                        (adapter as BaseAdapter<T>).submitList(result.data as? List<T>)
+                }
                 else -> {
                 }
             }
