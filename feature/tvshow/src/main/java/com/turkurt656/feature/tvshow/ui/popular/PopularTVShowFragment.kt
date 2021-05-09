@@ -20,13 +20,16 @@ class PopularTVShowFragment : BaseFragment<PopularTVShowViewModel, PopularTvShow
         configList()
     }
 
+    override fun oneTimeEvent() {
+        binding?.rcvPopularShows?.onLoadMore { page, _ ->
+            viewModel.fetchPopularShows(page)
+        }
+    }
+
     private fun configList() {
         binding?.rcvPopularShows?.adapter = adapter
         adapter.onItemClicked = { item: TVShow, _: View ->
             viewModel.navigateToDetail(item)
-        }
-        binding?.rcvPopularShows?.onLoadMore { page, _ ->
-            viewModel.fetchPopularShows(page)
         }
     }
 
