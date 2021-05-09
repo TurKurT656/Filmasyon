@@ -11,15 +11,15 @@
             type="com.turkurt656.feature.tvshow.ui.popular.PopularTVShowViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_primary">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvPopularShows"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -32,5 +32,25 @@
             tools:itemCount="8"
             tools:listitem="@layout/tv_show_item" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            app:layout_anchor="@id/bottomBar"
+            android:onClick="@{() -> vm.onFilterListClicked()}"
+            app:srcCompat="@drawable/ic_filter_list"
+            app:tint="@color/white" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            app:backgroundTint="?attr/colorPrimaryVariant"
+            app:contentInsetEnd="0dp"
+            app:hideOnScroll="true"
+            app:contentInsetStart="0dp"
+            app:fabAlignmentMode="end" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

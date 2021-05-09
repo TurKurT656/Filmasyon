@@ -20,4 +20,8 @@ class PopularTVShowViewModel(
             )
     }
 
+    fun onFilterListClicked() {
+        showSnackBar("Coming soon...")
+    }
+
 }
