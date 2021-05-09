@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/binding"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -10,9 +11,10 @@
             type="com.turkurt656.feature.tvshow.ui.detail.TVShowDetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:binding="http://schemas.android.com/binding"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/color_primary">
 
         <ImageView
             android:id="@+id/imgBackdrop"
@@ -26,11 +28,31 @@
             binding:imageUrl="@{vm.tvShowDetail.backdropPath}"
             tools:src="@tools:sample/backgrounds/scenic" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/rating_bg"
+            android:drawablePadding="4dp"
+            android:paddingStart="4dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="2dp"
+            android:text="@{`` + vm.tvShowDetail.voteAverage}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_star"
+            app:drawableTint="@color/color_secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="5.6" />
+
         <ImageView
             android:id="@+id/imgPoster"
             android:layout_width="100dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/imgBackdrop"
@@ -39,6 +61,41 @@
             app:layout_constraintTop_toBottomOf="@+id/imgBackdrop"
             binding:imageUrl="@{vm.tvShowDetail.posterPath}"
             tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{vm.tvShowDetail.name}"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgPoster"
+            app:layout_constraintTop_toBottomOf="@id/imgBackdrop"
+            tools:text="Game of Thrones" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="txtName,imgPoster" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{vm.tvShowDetail.overview}"
+            android:textColor="@color/grey_f2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
+            tools:text="@tools:sample/lorem[50]" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

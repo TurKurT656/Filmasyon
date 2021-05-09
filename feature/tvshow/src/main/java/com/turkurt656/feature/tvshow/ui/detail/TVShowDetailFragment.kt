@@ -2,6 +2,7 @@ package com.turkurt656.feature.tvshow.ui.detail
 
 import androidx.navigation.fragment.navArgs
 import com.turkurt656.common.core.base.BaseFragment
+import com.turkurt656.common.core.ktx.setStatusBarColor
 import com.turkurt656.feature.tvshow.R
 import com.turkurt656.feature.tvshow.databinding.TvShowDetailFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -15,6 +16,14 @@ class TVShowDetailFragment : BaseFragment<TVShowDetailViewModel, TvShowDetailFra
     )
 
     override val layoutRes: Int = R.layout.tv_show_detail_fragment
+
+    override fun oneTimeEvent() {
+        setStatusBarColor(
+            R.color.transparent,
+            isDarkStatusBar = false,
+            isFullScreenStatusBar = true,
+        )
+    }
 
     override fun hookVariables() {
         binding?.vm = viewModel
