@@ -108,18 +108,50 @@
             tools:text="@tools:sample/lorem[50]" />
 
         <com.google.android.material.chip.ChipGroup
-            app:layout_constraintTop_toBottomOf="@id/txtOverview"
+            android:id="@+id/chgGenres"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtOverview"
+            binding:chips="@{vm.genres}" />
+
+        <TextView
+            android:id="@+id/txtSeasonsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:text="@{vm.tvShowDetail == null ? @string/seasons_count_placeholder(0) : @string/seasons_count_placeholder(vm.tvShowDetail.numberOfSeasons)}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_movie"
+            app:drawableTint="@color/color_primary_variant"
+            app:layout_constraintEnd_toStartOf="@id/txtEpisodesCount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chgGenres"
+            tools:text="8 Seasons" />
+
+        <TextView
+            android:id="@+id/txtEpisodesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            binding:chips="@{vm.genres}"
-            android:layout_height="wrap_content">
+            android:drawablePadding="4dp"
+            android:text="@{vm.tvShowDetail == null ? @string/episodes_count_placeholder(0) : @string/episodes_count_placeholder(vm.tvShowDetail.numberOfEpisodes)}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_local_movies"
+            app:drawableTint="@color/color_primary_variant"
+            app:layout_constraintBaseline_toBaselineOf="@id/txtSeasonsCount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtSeasonsCount"
+            tools:text="34 Episodes" />
 
-
-        </com.google.android.material.chip.ChipGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

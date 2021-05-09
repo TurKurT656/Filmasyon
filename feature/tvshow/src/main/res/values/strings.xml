@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="seasons_count_placeholder">%1$d Seasons</string>
+    <string name="episodes_count_placeholder">%1$d Episodes</string>
+</resources>
