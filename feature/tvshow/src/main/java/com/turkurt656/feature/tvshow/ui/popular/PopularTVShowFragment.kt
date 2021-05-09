@@ -16,20 +16,20 @@ class PopularTVShowFragment : BaseFragment<PopularTVShowViewModel, PopularTvShow
 
     override val layoutRes: Int = R.layout.popular_tv_show_fragment
 
+    private var cachedPage = 1
+
     override fun everyTimeEvent() {
         configList()
-    }
-
-    override fun oneTimeEvent() {
-        binding?.rcvPopularShows?.onLoadMore { page, _ ->
-            viewModel.fetchPopularShows(page)
-        }
     }
 
     private fun configList() {
         binding?.rcvPopularShows?.adapter = adapter
         adapter.onItemClicked = { item: TVShow, _: View ->
             viewModel.navigateToDetail(item)
+        }
+        binding?.rcvPopularShows?.onLoadMore(startingPageIndex = cachedPage) { page, _ ->
+            viewModel.fetchPopularShows(page)
+            cachedPage = page
         }
     }
 

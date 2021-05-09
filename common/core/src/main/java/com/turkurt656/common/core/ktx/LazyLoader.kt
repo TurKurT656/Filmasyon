@@ -113,6 +113,6 @@ fun RecyclerView.onLoadMore(
                 }
             }
         addOnScrollListener(lazyLoader)
-        block(1, 0)
+        if (startingPageIndex == 1) block(1, 0)
         lazyLoader
     } ?: throw Exception("add layoutManager before using this method")
