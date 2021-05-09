@@ -6,6 +6,22 @@
 
     <fragment
         android:id="@id/popular_tv_show_fragment"
-        android:name="com.turkurt656.feature.tvshow.ui.popular.PopularTVShowFragment" />
+        android:name="com.turkurt656.feature.tvshow.ui.popular.PopularTVShowFragment">
+
+        <action
+            android:id="@+id/to_detail"
+            app:destination="@id/tv_show_detail_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@id/tv_show_detail_fragment"
+        android:name="com.turkurt656.feature.tvshow.ui.detail.TVShowDetailFragment">
+
+        <argument
+            android:name="showId"
+            app:argType="long" />
+
+    </fragment>
 
 </navigation>

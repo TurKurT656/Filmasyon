@@ -1,6 +1,7 @@
 import com.turkurt656.buildsrc.Plugins
 import com.turkurt656.buildsrc.deps.AndroidxDeps
 import com.turkurt656.buildsrc.deps.KoinDeps
+import com.turkurt656.buildsrc.deps.NavigationDeps
 import com.turkurt656.buildsrc.deps.UIDeps
 import com.turkurt656.buildsrc.gradles.CommonGradles
 import com.turkurt656.buildsrc.modules.CommonModules
@@ -16,6 +17,7 @@ dependencies {
     implementation AndroidxDeps.constraintLayout
     implementation AndroidxDeps.fragmentKtx
     implementation UIDeps.material
+    implementation NavigationDeps.fragmentKtx
 
     implementation KoinDeps.androidxFragment
     implementation KoinDeps.androidxScope

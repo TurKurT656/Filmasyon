@@ -4,6 +4,8 @@ import com.turkurt656.common.core.base.BaseViewModel
 import com.turkurt656.common.core.ktx.*
 import com.turkurt656.data.domain.dto.tvshow.TVShow
 import com.turkurt656.data.domain.usecase.tvshow.GetPopularShowsUseCase
+import com.turkurt656.library.navigation.command.NavigationFlow
+import com.turkurt656.library.navigation.command.NavigationFlow.*
 
 class PopularTVShowViewModel(
     private val getPopularShowsUseCase: GetPopularShowsUseCase,
@@ -22,6 +24,10 @@ class PopularTVShowViewModel(
 
     fun onFilterListClicked() {
         showSnackBar("Coming soon...")
+    }
+
+    fun navigateToDetail(tvShow: TVShow) {
+        navigateTo(PopularShowsToDetail(tvShow.id))
     }
 
 }
