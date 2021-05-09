@@ -1,6 +1,7 @@
 package com.turkurt656.data.domainimpl.repository
 
 import com.turkurt656.data.domain.dto.tvshow.TVShow
+import com.turkurt656.data.domain.dto.tvshow.TVShowDetail
 import com.turkurt656.data.domain.repository.TVShowRepository
 import com.turkurt656.data.domain.result.FlowResult
 import com.turkurt656.data.domainimpl.mapping.tvshow.toDomain
@@ -19,6 +20,11 @@ class TVShowRepositoryImpl(
             if (page == 1) _popularShows.clear()
             _popularShows.addAll(shows)
             return@flowResult _popularShows
+        }
+
+    override fun getTVShowDetail(id: Long): FlowResult<TVShowDetail> =
+        flowResult {
+            return@flowResult tvShowsApi.getTVShowDetail(id).toDomain()
         }
 
 
