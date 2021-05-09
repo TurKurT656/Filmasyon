@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/imgBackdrop"
             android:layout_width="0dp"
-            android:layout_height="156dp"
+            android:layout_height="200dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +27,15 @@
             app:layout_constraintTop_toTopOf="parent"
             binding:imageUrl="@{vm.tvShowDetail.backdropPath}"
             tools:src="@tools:sample/backgrounds/scenic" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/fade_image_bg"
+            app:layout_constraintBottom_toBottomOf="@id/imgBackdrop"
+            app:layout_constraintEnd_toEndOf="@id/imgBackdrop"
+            app:layout_constraintStart_toStartOf="@id/imgBackdrop"
+            app:layout_constraintTop_toTopOf="@id/imgBackdrop" />
 
         <TextView
             android:layout_width="wrap_content"
