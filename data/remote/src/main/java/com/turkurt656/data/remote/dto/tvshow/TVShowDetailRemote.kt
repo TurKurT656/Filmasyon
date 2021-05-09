@@ -8,7 +8,7 @@ data class TVShowDetailRemote(
     @field:Json(name = "id")
     val id: Long,
     @field:Json(name = "poster_path")
-    val posterPath: String,
+    val posterPath: String?,
     @field:Json(name = "backdrop_path")
     val backdropPath: String?,
     @field:Json(name = "vote_average")

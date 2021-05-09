@@ -17,7 +17,7 @@ data class TVShowRemote(
     @field:Json(name = "id")
     val id: Long,
     @field:Json(name = "poster_path")
-    val posterPath: String,
+    val posterPath: String?,
     @field:Json(name = "vote_average")
     val voteAverage: Float,
     @field:Json(name = "name")

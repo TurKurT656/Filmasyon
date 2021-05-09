@@ -2,7 +2,7 @@ package com.turkurt656.data.domain.dto.tvshow
 
 data class TVShowDetail(
     val id: Long,
-    val posterPath: String,
+    val posterPath: String?,
     val backdropPath: String?,
     val voteAverage: Float,
     val name: String,
